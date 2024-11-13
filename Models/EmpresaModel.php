@@ -22,7 +22,6 @@ class EmpresaModel extends Mysql{
 		$request = $this->update($sql,$arrData);
 	    return $request;
 	}
-
 	// public function insertPost($titulo, $contenido, $portada, $ruta, $status){
 	// 	$sql = "SELECT * FROM tb_pagina WHERE ruta = '{$ruta}'";
 	// 	$request = $this->select_all($sql);
@@ -37,11 +36,11 @@ class EmpresaModel extends Mysql{
 	// 	return $return;
 	// }
 
-	// public function deletePagina($ipagina){
-	// 	$sql = "UPDATE tb_pagina SET estado = ? WHERE idpage = $ipagina";
-	// 	$arrData = array('X');
-	// 	$request = $this->update($sql,$arrData);
-	// 	return $request;
-	// }
+	public function deleteEmpresa($ipagina){
+		$sql = "UPDATE tb_footer SET estado = ? WHERE idpage = $ipagina";
+		$arrData = array('X');
+		$request = $this->update($sql,$arrData);
+		return $request;
+	}
 }
 ?>

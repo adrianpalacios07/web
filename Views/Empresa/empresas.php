@@ -27,7 +27,7 @@ headerAdmin($data);
               <tr>
                 <th>Descripción</th>
                 <th>Información Adicional</th>
-                <th>Información Adicional 2</th>
+                <!-- <th>Información Adicional 2</th> -->
                 <th>Acción</th>
               </tr>
             </thead>

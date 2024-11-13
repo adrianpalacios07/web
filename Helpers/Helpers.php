@@ -432,6 +432,14 @@
         }
         return $request;
     }
+    function getFooter() {
+        require_once("Libraries/Core/Mysql.php");
+        $con = new Mysql();
+        $sql = "SELECT info_adicional FROM tb_footer";
+        $request = $con->select_all($sql);
+        return $request;
+    }
+
     function getPages(){
         require_once("Libraries/Core/Mysql.php");
         $con = new Mysql();

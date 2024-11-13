@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sergeyco SAC">
-    <meta name="theme-color" content="#FFFF00">
+    <meta name="theme-color" content="#FFFF00"> 
     <link rel="shortcut icon" href="<?= media();?>/images/icono_app.png">
     <meta property="og:locale" content="es_ES"/>
     <meta property="og:type" content="store"/>
@@ -105,6 +105,7 @@
     <script type="text/javascript" src="<?= media(); ?>/admin/js/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/admin/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/admin/js/main.js"></script>
+    <script type="text/javascript" src="<?= media(); ?>/admin/plugins/select2.min.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/js/functions_admins.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/admin/js/<?= $data['page_functions_js']; ?>"></script>
   </body>

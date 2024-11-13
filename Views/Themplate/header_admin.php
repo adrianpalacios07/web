@@ -41,6 +41,7 @@
     <link rel="stylesheet" type="text/css" href="<?= media()?>/admin/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?= media()?>/admin/css/estilos.css">
     <link rel="stylesheet" type="text/css" href="<?= media()?>/admin/css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= media()?>/vendor/select2/select2.min.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="<?= media()?>/admin/css/font/bootstrap-icons.css">
   </head>

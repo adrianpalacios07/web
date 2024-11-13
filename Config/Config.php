@@ -13,7 +13,7 @@
 	const DB_HOST = "localhost";
 	const DB_NAME = "wwwtortaza_hgadmin";
 	const DB_USER = "root";
-	const DB_PASSWORD = "";
+	const DB_PASSWORD = "123456";
 	const DB_CHARSET = "utf8";
 
 	//Para envío de correo

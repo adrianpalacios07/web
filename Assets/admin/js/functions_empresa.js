@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 // {"data":"id"},
                 {"data":"descripcion"},
                 {"data":"info_adicional"},
-                {"data":"info_adicional2"},
+                // {"data":"info_adicional2"},
                 {"data":"options"}
             ],
             "responsive":"true",
@@ -24,37 +24,30 @@ document.addEventListener('DOMContentLoaded', function(){
             "order":[[0,"asc"]]  
         });
     }
-    if(document.querySelector("#formEmpresa")){
-        let formPaginas = document.querySelector("#formEmpresa");
-        formPaginas.onsubmit = function(e) {
+    if(document.querySelector("#formEmpresas")){
+        var formPedidoTemp = document.querySelector("#formEmpresas");
+        formPedidoTemp.onsubmit = function(e){
             e.preventDefault();
-            let strTitulo = document.querySelector('#txtTitulo').value;
-            let strContenido = document.querySelector('#txtInfo').value;
-            let intStatus = document.querySelector('#txtInfo').value;
-            if(strTitulo == '' || strContenido == '' || intStatus == '' ){
-                swal("Atención", "Todos los campos son obligatorios." , "error");
-                return false;
-            }
-            divLoading.style.display = "flex";
-            tinyMCE.triggerSave();
-            let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Empresa/setEmpresa'; 
-            let formData = new FormData(formPaginas);
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/empresa/setEmpresa'; 
+            var formData = new FormData(formPedidoTemp);
             request.open("POST",ajaxUrl,true);
             request.send(formData);
             request.onreadystatechange = function(){
+                console.log(request.responseText);
                 if(request.readyState == 4 && request.status == 200){
-                    let objData = JSON.parse(request.responseText);
-                    if(objData.status){
-                        swal("Sistema", objData.msg, "success");                   
+                    console.log(request.responseText);
+                    var objData = JSON.parse(request.responseText);
+                    console.log(objData);
+                    if(objData.status){      
+                        swal(objData.MSG, "success");                  
+                        // alert(objData.MSG);
                     }else{
-                        swal("Error", objData.msg , "error");
-                    }
-                }
-                divLoading.style.display = "none";
-                return false;
+                        swal(objData.MSG, "error");    
+                        // alert(objData.MSG);
+                    }     
+                } 
             }
         }
     }
-
 });

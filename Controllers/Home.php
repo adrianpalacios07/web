@@ -7,6 +7,7 @@ class Home extends Controllers{
 	public function home(){
 		$pages = getPages();
 		$cat = getCatalogo();
+		$footer = getFooter();
 		for ($i=0; $i <count($pages); $i++) { 
 			$pages[$i]['submenu'] = getSubPages($pages[$i]['idpage']);
 		}	
@@ -16,6 +17,7 @@ class Home extends Controllers{
 		$data['page_url'] = "home";
 		$data['pages'] = $pages;
 		$data['cat'] = $cat;
+		$data['footer'] = $footer;
 		
 		// $data['subpages'] = $subpages;
 		$this->views->getView($this,"home",$data); 

@@ -17,7 +17,8 @@ $page = $data['pagina'];
     <div class="col-md-12">
       <div class="tile">
         <div class="tile-body">
-          <form class="form-horizontal" id="formPaginas">
+          <form class="form-horizontal" id="formEmpresas">
+          <input type="hidden" name="codPage" value="<?= $page['id']; ?>">
             <div class="row">
               <div class="col-md-9">
                 <div class="mb-3 row">
@@ -27,13 +28,13 @@ $page = $data['pagina'];
                   </div>
                 </div>
                 <div class="mb-3 row">
-                  <label class="form-label col-md-2" for="txtContenido">Información Adicional</label>
+                  <label class="form-label col-md-2" for="txtInfo">Información Adicional</label>
                   <div class="col-md-4">
                   <input class="form-control valid validText" type="text" name="txtInfo" id="txtInfo" value="<?= $page['info_adicional']; ?>" placeholder="Titulo de la pagina">
                   </div>
                 </div>
                 <div class="mb-3 row">
-                <label class="form-label col-md-2" for="txtContenido">Información Adicional N°2</label>
+                <label class="form-label col-md-2" for="txtInfo2">Información Adicional N°2</label>
                 <div class="col-md-4">
                   <input class="form-control valid validText" type="text" name="txtInfo2" id="txtInfo2" value="<?= $page['info_adicional2']; ?>" placeholder="Titulo de la pagina">
                   </div>
