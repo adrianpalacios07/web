@@ -463,6 +463,14 @@
         return $request;
     }
 
+    function getCatalogo() {
+        require_once('Libraries/Core/Mysql.php');
+        $con = new Mysql();
+        $sql = "SELECT * FROM tb_tipo WHERE estado = 'A'";
+        $request = $con->select_all($sql);
+        return $request;
+    }
+
 
     //  informacion del panel
     function getInfoPanel($idpage) {

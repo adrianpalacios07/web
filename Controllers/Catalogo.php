@@ -5,6 +5,7 @@ class Catalogo extends Controllers{
 		parent::__construct();
 	}
     public function catalogo() {
+		$cat = getCatalogo();
 		$pages = getPages();
 		for ($i=0; $i <count($pages); $i++) { 
 			$pages[$i]['submenu'] = getSubPages($pages[$i]['idpage']);
@@ -14,7 +15,7 @@ class Catalogo extends Controllers{
 		$data['page_name'] = "Tortaza";
 		$data['page_url'] = "catalogo";
 		$data['pages'] = $pages;
-		// $data['subpages'] = $subpages;
+		$data['cat'] = $cat;
 		$this->views->getView($this,"catalogo",$data);
 	}
 
