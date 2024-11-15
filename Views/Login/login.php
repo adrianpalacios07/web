@@ -102,11 +102,13 @@
     <script>
         const base_url = "<?= base_url(); ?>";
     </script>
+ 
     <script type="text/javascript" src="<?= media(); ?>/admin/js/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/admin/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/admin/js/main.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/admin/plugins/select2.min.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/js/functions_admins.js"></script>
     <script type="text/javascript" src="<?= media(); ?>/admin/js/<?= $data['page_functions_js']; ?>"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

@@ -29,9 +29,10 @@ $pageRuta = base_url().'/'.$page['ruta'];
     <div class="col-md-12">
       <div class="tile">
         <div class="tile-body">
+          <?= dep($fotoActual) ?>
           <form class="form-horizontal" id="formPaginas">
             <input type="hidden" name="codPage" value="<?= $page['idpage']; ?>">
-            <input type="hidden" id="foto_actual" name="foto_actual" value="<?= $fotoActual ?>">
+            <input type="hidden" id="foto_actual" name="foto_actual" value="<?= $fotoActual; ?>">
             <input type="hidden" id="foto_remove" name="foto_remove" value="<?= $fotoRemove; ?>">
             <div class="row">
               <div class="col-md-9">

@@ -435,7 +435,14 @@
     function getFooter() {
         require_once("Libraries/Core/Mysql.php");
         $con = new Mysql();
-        $sql = "SELECT info_adicional FROM tb_footer";
+        $sql = "SELECT * FROM tb_informacion";
+        $request = $con->select_all($sql);
+        return $request;
+    }
+    function getBanner(){
+        require_once("Libraries/Core/Mysql.php");
+        $con = new Mysql();
+        $sql = "SELECT * FROM tb_banner WHERE estado = 'A'";
         $request = $con->select_all($sql);
         return $request;
     }
