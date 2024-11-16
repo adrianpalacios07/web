@@ -1,0 +1,3 @@
+cambiar el nombre de subida a la imagen
+mostrar la imagen en el icono
+editar un banner
