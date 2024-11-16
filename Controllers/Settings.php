@@ -61,8 +61,9 @@ class Settings extends Controllers{
 				$btnDelete = '';
 				
 				$btnEdit = '<button type="button" class="btn btn-primary btn-sm"
-				onclick="ftnEditar('.$arrData[$i]['id'].')" title="Editar"> <i class="bi bi-pencil-fill"></i></button>';
-
+				onclick="ftnEditar('.$arrData[$i]['id'].')" title="Editar"><i class="bi bi-pencil-fill"></i></button>';
+				$btnDelete = '<button class="btn btn-danger btn-sm float-end" onclick="ftnEliminar('.$arrData[$i]['id'].')" 
+				title="Eliminar página"> <i class="bi bi-trash-fill"></i></button>';
 				$arrData[$i]['options'] = '<div class="text-center">'.$btnView.' '.$btnEdit.' '.$btnDelete.'</div>';
 			}
 			echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
@@ -86,9 +87,7 @@ class Settings extends Controllers{
 			$images = uploadImage($imagesfiles,$imagesname) ;
 			$txtfrase = $_POST['txtfrase'];
 			$txtbanner = $imagesname;
-	
 			$request = $this->model->insertBanner($txtbanner,$txtfrase);
-
 			if($request > 0){
 				$array_response = array("status" => true,"MSG" => "SI");
 			}else{
@@ -99,30 +98,41 @@ class Settings extends Controllers{
 	}
 	public function updateInfo() {
 		if ($_POST) {
-			dep($_POST);
 			$idinfo =$_POST['txtidinfo'];
 			$txthoratencion = $_POST['txthoraatencion'];
 			$txtfacebook = $_POST['txtfacebook'];
 			$txtinstagram = $_POST['txtinstagram'];
 			$txtcontactanos = $_POST['txtcontactanos'];
 			$txteslogan = $_POST['txteslogan'];
-			// $txticono = $_POST['txticono'];
+			$txticononame = $_FILES['txticono']['name'];	
+			$txticono = $txticononame;
 			$txtcolor = $_POST['txtcolor'];
 			$txtcolormenu = $_POST['txtcolormenu'];
-			$txtdelivery = $_POST['txtdelivery'];
-
-			$request = $this->model->updateInfo($idinfo,$txthoratencion,$txtfacebook,$txtinstagram,$txtcontactanos,
-			$txteslogan,$txtcolor,$txtcolormenu,$txtdelivery);
+			$txtdelivery = ($_POST['txtdelivery'] == 'on') ? 'S':'N';
+			$request = $this->model->updateInfo($idinfo,$txthoratencion,$txtfacebook,
+			$txtinstagram,$txtcontactanos,
+			$txteslogan,$txticono,$txtcolor,$txtcolormenu,$txtdelivery);
 
 			if ($request > 0) {
-				$array_response = array("status" => true,"MSG" => "SE LOGRO");
+				$array_response = array("status" => true,"MSG" => "SE LOGRO 1");
 			}else{
 				$array_response = array("status" => false,"MSG" => "NO :(");
 			}
 			echo json_encode($array_response,JSON_UNESCAPED_UNICODE);
 		}
 	}
-
-
+	public function delBanner($cod){
+		if($_POST){
+			// $intIdpagina = intval($_POST['idPagina']);
+			$requestDelete = $this->model->deleteBanner($cod);
+			if($requestDelete){
+				$arrResponse = array('status' => true, 'MSG' => 'Se ha eliminado la banner');
+			}else{
+				$arrResponse = array('status' => false, 'MSG' => 'Error al eliminar la banner.');
+			}
+			echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+		}
+		die();
+	}
 } 
 ?>

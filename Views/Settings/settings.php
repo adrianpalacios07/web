@@ -90,18 +90,20 @@ $imgPortada = $fotoActual != "" ? '<img id="img" src="'.media()."/images/".$foto
                                     </div>
                                     <div class="mb-3">
                                       <!-- <h4>banner</h4> -->
-                                      <table class="table table-striped" id="tableBanner">
+                                        <div class="table-response table-wrapper-h300">
+                                        <table class="table table-striped" id="tableBanner">
                                         <thead>
                                           <tr>
                                             <th>#</th>
                                             <th>Imagen</th>
                                             <th>Frase</th>
-                                            <th><button type="button" class="btn btn-success btn-sm" onclick="ftnAgregar()" title="Agregar"><i class="bi bi-plus-lg"></i></button></th>
+                                            <th><button type="button" class="btn btn-success btn-sm float-end" onclick="ftnAgregar()" title="Agregar"><i class="bi bi-plus-lg"></i></button></th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                         </tbody>
                                       </table>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -123,14 +125,16 @@ $imgPortada = $fotoActual != "" ? '<img id="img" src="'.media()."/images/".$foto
                                       value="<?= $set['color_menu']?>">
                                       <small class="form-text text-muted" id="emailHelp">Código de Menú</small>
                                     </div>
-                                    <!-- <div class="mb-3">
+                                    <div class="mb-3">
                                       <div class="form-group">
+                                        
                                         <div id="containerGallery">
                                           <h4>ICONO</h4>
                                           <span>Tamaño sugerido (1920px X 239px)</span>
                                         </div>
                                           <hr>
-                                          <div id="containerImages">
+                                          <input type="file" name="txticono" id="txticono" value="<?= $set['icono'] ?>">
+                                          <!-- <div id="containerImages">
                                             <div class="photo">
                                               <div class="prevPhoto prevPortada">
                                                 <span class="delPhoto notBlock">X</span>
@@ -144,9 +148,9 @@ $imgPortada = $fotoActual != "" ? '<img id="img" src="'.media()."/images/".$foto
                                               </div>
                                               <div id="form_alert"></div>
                                             </div>
-                                          </div>
+                                          </div> -->
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <hr>
                                     <div class="mb-3">
                                       <div class="row">
@@ -156,7 +160,9 @@ $imgPortada = $fotoActual != "" ? '<img id="img" src="'.media()."/images/".$foto
                                         <div class="col-md-2">
                                           <div class="toggle-flip">
                                             <label>
-                                              <input type="checkbox" id="txtdelivery" name="txtdelivery"><span class="flip-indecator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                                              <input type="checkbox" id="txtdelivery" name="txtdelivery" 
+                                              <?= ($set['delivery'] == 'S') ? 'checked': '' ?> 
+                                              ><span class="flip-indecator" data-toggle-on="ON" data-toggle-off="OFF"></span>
                                             </label>
                                           </div>
                                         </div>  
@@ -168,7 +174,7 @@ $imgPortada = $fotoActual != "" ? '<img id="img" src="'.media()."/images/".$foto
                               <div class="tile-footer">
                                 <div class="row">
                                   <div class="col-md-6">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary"> <i class="bi bi-check-circle-fill"></i> Guardar</button>
                                     <a href="<?= base_url().'/dashboard' ?>" class="btn btn-secondary"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
                                   </div>
                                 </div>

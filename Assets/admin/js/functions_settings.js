@@ -58,11 +58,12 @@ document.addEventListener('DOMContentLoaded', function(){
                     console.log(request.responseText)
                     let objData = JSON.parse(request.responseText);
                     if(objData.status){
-                        alert('si');
-                        swal("sistema", objData.msg ,"success");                        
+                        // alert('si');
+                        swal("sistema", objData.MSG ,"success"); 
+                        tablePaginas.api().ajax.reload();                       
                     }else{
-                        alert('NO');
-                        swal("Error", objData.msg , "error");
+                        // alert('NO');
+                        swal("Error", objData.MSG , "error");
                     }
                 }
                 divLoading.style.display = "none";
@@ -87,10 +88,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     let objData = JSON.parse(request.responseText);
                     if(objData.status){
                         // alert('si');
-                        swal("Good job!", "You clicked the button!", "success");                    
+                        swal("Good job!", objData.MSG, "success");                    
                     }else{
                         // alert('NO');
-                        swal("Error", objData.msg , "error");
+                        swal("Error", objData.MSG , "error");
                     }
                 }
                 divLoading.style.display = "none";
@@ -205,6 +206,29 @@ function ftnAgregar(){
     $('#addModalSettings').modal('show');
 }
 
+function ftnEliminar(cod) {
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var ajaxUrl = base_url+'/settings/delBanner/'+cod;
+    request.open("POST",ajaxUrl,true);
+    request.send();
+    request.onreadystatechange = function(){
+        if(request.readyState != 4) return;
+        if(request.status == 200){
+            console.log(request.responseText);
+        //     var objData = JSON.parse(request.responseText);
+        //     if(objData.status){
+        //         let objBanner = objData.data;
+        //         document.querySelector('#txtid').value = objBanner.id;
+        //         document.querySelector('#txtfrase').value = objBanner.frase;
+        //         document.querySelector('#images').src = objBanner.url_imagen;
+        //         $('#exampleModal').modal('show');
+        //     }
+        // }else{
+        //     swal("Atención","Error en el proceso", "error");
+         }
+        return false;
+    }
+}
 
 // ------------
 tinymce.init({

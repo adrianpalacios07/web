@@ -28,20 +28,18 @@ class SettingsModel extends Mysql{
 		$request_insert = $this->insert($sql,$arrData);
 		return $request_insert;
 	}
+
 	public function updateInfo($idInfo,$horatencion,$facebook,$instagram,
-	$contactanos,$eslogan,
+	$contactanos,$icono,$eslogan,
 	$color,$colormenu,$delivery) {
 		$sql = "UPDATE tb_informacion SET hora_atencion = ?,facebook = ?, instagram = ?,
-		contactanos = ?, eslogan = ?, color = ?, color_menu = ?, delivery = ?
+		contactanos = ?, icono = ?, eslogan = ?, color = ?, color_menu = ?, delivery = ?
 		WHERE id = '$idInfo'";
-		$arrData = array("$horatencion","$facebook","$instagram","$contactanos","$eslogan",
+		$arrData = array("$horatencion","$facebook","$instagram","$contactanos","$eslogan","$icono",
 		"$color","$colormenu","$delivery");
 		$request = $this->update($sql,$arrData);
 		return $request;
 		}
-
-
-
 // fin adrian
 
 	public function setDeliveryTienda($itienda,$dmonto,$delivery){
@@ -57,32 +55,12 @@ class SettingsModel extends Mysql{
 		$request = $this->update($sql,$arrData);
 		return $request;
 	}
-	// public function updatePost($ipagina, $titulo, $contenido,  $portada, $status){
-	// 	$sql = "UPDATE tb_pagina SET titulo = ?, contenido = ?, portada = ?, estado = ? WHERE idpage = $ipagina";
-	// 	$arrData = array("$titulo", "$contenido", "$portada", "$status");
-	// 	$request = $this->update($sql,$arrData);
-	//     return $request;
-	// }
 
-	// public function insertPost($titulo, $contenido, $portada, $ruta, $status){
-	// 	$sql = "SELECT * FROM tb_pagina WHERE ruta = '{$ruta}'";
-	// 	$request = $this->select_all($sql);
-	// 	if(empty($request)){
-	// 		$query_insert  = "INSERT INTO tb_pagina(titulo,contenido,portada,ruta,estado)VALUES(?,?,?,?,?)";
-	// 		$arrData = array("$titulo", "$contenido", "$portada", "$ruta", "$status");
-	// 		$request_insert = $this->insert($query_insert,$arrData);
-    //     	$return = $request_insert;
-	// 	}else{
-	// 		$return = 0;
-	// 	}
-	// 	return $return;
-	// }
-
-	// public function deletePagina($ipagina){
-	// 	$sql = "UPDATE tb_pagina SET estado = ? WHERE idpage = $ipagina";
-	// 	$arrData = array('X');
-	// 	$request = $this->update($sql,$arrData);
-	// 	return $request;
-	// }
+	public function deleteBanner($ipagina){
+		$sql = "UPDATE tb_banner SET estado = 'X' WHERE id = $ipagina";
+		$arrData = array($ipagina);
+		$request = $this->update($sql,$arrData);
+		return $request;
+	}
 }
 ?>
